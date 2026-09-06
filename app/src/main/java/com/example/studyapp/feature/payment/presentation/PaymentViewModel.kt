@@ -1,19 +1,20 @@
 package com.example.studyapp.feature.payment.presentation
 
-import android.media.metrics.Event
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.studyapp.feature.payment.domain.model.PaymentType
-import com.example.studyapp.feature.payment.domain.model.Transaction
 import com.example.studyapp.feature.payment.domain.model.TransactionStatus
 import com.example.studyapp.feature.payment.domain.repository.PaymentRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
+import javax.inject.Inject
 
-class PaymentViewModel(
+@HiltViewModel
+class PaymentViewModel @Inject constructor(
     private val repository: PaymentRepository
 ) : ViewModel(){
 
