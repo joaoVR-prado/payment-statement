@@ -3,16 +3,16 @@ package com.example.studyapp.feature.payment.domain.repository
 import com.example.studyapp.feature.payment.domain.model.PaymentType
 import com.example.studyapp.feature.payment.domain.model.Transaction
 import com.example.studyapp.feature.payment.domain.model.TransactionStatus
+import jakarta.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import java.math.BigDecimal
 import java.util.UUID
 import kotlin.time.Duration.Companion.milliseconds
 
-class PaymentRepositoryImpl(
-    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+class PaymentRepositoryImpl @Inject constructor(
+    private val ioDispatcher: CoroutineDispatcher
 ) : PaymentRepository  {
     private val inMemoryHistory = mutableListOf<Transaction>()
 
